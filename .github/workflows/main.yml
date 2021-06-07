@@ -8,4 +8,12 @@ jobs:
       - uses: actions/checkout@v1
       - uses: ./action-a
         with:
-          MY_NAME: "houssine"
+          MY_NAME: "houssine" 
+      - name: build and push docker image      
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+            image: elhoussinelg/hello_world
+            registry: docker.io
+            username: ${{ secrets.DOCKER_USERNAME }}
+            password: ${{ secrets.DOCKER_PASSWORD }}
+
